@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  font-family: 'Orbitron', sans-serif;
+}
+html {
+  min-height: 100vh;
+}
+body {
+  background: linear-gradient(45deg, #83776a, #0f547f);
+}
+.container {
+  margin: 50px auto;
+  text-align: center;
+  max-width: 728px;
+}
+h1 {
+  margin-top: 20px; /* Adjusted for spacing */
+  color: #fff;
+}
+.logo {
+  width: 300px;
+  height: auto;
+  margin-top: 20px;
+}
+.scroll-container {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0; /* Space between the lists */
+  display: flex;
+  justify-content: center; /* Center the scroll numbers */
+}
+.scroll-container li {
+  margin: 0 5px; /* Space between scroll number items */
+  height: 100px;
+  border: 1px solid #000;
+  background-color: #222;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.numbers {
+  margin-top: 20px;
+}
+.numbersAPI {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.numbers__window {
+  width: 60px;
+  height: 100px;
+  margin: 0 2px;
+  text-align: center;
+  font-size: 60px;
+  line-height: 100px; /* Vertically center the text */
+  border: 1px solid #000;
+  color: darkred;
+
+}
