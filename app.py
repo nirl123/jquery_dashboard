@@ -49,7 +49,8 @@ def fetch_api_data():
                 app.logger.info(f"Updated API data: {latest_api_data}")
             else:
                 app.logger.error(f"Failed to fetch API data: {response.status_code}")
-            
+                
+                           
             time.sleep(5)
         except Exception as e:
             app.logger.error(f"Error fetching API data: {str(e)}")
@@ -85,7 +86,7 @@ def update_number_api():
 def start_file_watcher():
     event_handler = CSVHandler()
     observer = Observer()
-    observer.schedule(event_handler, path='.', recursive=False)
+    observer.schedule(event_handler, path='/app', recursive=False)
     observer.start()
     try:
         while True:
