@@ -15,6 +15,7 @@ latest_api_data = {"numberAPI": "No Data", "timestamp": time.time()}
 
 class CSVHandler(FileSystemEventHandler):
     def on_created(self, event):
+        app.logger.info(f'File created event detected: {event.src_path}')
         if not event.is_directory and event.src_path.endswith('.csv'):
             self.process_csv(event.src_path)
 
@@ -84,9 +85,12 @@ def update_number_api():
     return jsonify(latest_api_data)
 
 def start_file_watcher():
+    watch_directory = './data'  # Ensure this path matches the mounted directory
+    app.logger.info(f'Starting file watcher on directory: {os.path.abspath(watch_directory)}')
     event_handler = CSVHandler()
     observer = Observer()
-    observer.schedule(event_handler, path='/app', recursive=False)
+    observer.schedule(event_handler, path=watch_directory, recursive=False)
+
     observer.start()
     try:
         while True:
